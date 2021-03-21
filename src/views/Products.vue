@@ -1,5 +1,6 @@
 <template>
   <div class="products">
+    <Logout/>
     <h1>Our Products</h1>
     <br>
     <section class="product">
@@ -18,6 +19,7 @@
 </template>
 
 <script>
+import Logout from '@/components/Logout.vue'
 import ProductCard from '@/components/ProductCard.vue'
 import { mapState } from 'vuex'
 
@@ -32,7 +34,8 @@ export default {
     ...mapState(['products'])
   },
   components: {
-    ProductCard
+    ProductCard,
+    Logout
   },
   created () {
     this.fetchProducts()

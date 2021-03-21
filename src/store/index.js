@@ -47,6 +47,10 @@ export default new Vuex.Store({
         .catch((err) => {
           console.log(err)
         })
+    },
+    logout () {
+      localStorage.removeItem('access_token')
+      this.$router.push('/')
     }
   },
   modules: {
