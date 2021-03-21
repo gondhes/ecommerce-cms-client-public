@@ -5,7 +5,7 @@
     <form>
     <input class='form' type="text" placeholder="enter your email" id="email" v-model="email" required><br><br>
     <input class='form' type="text" placeholder="enter your password" id="password" v-model="password" required><br><br>
-    <button type="submit" id="btn-login">Login</button>
+    <button type="submit" id="btn-login" @click.prevent="login">Login</button>
     </form>
   </div>
 </template>
@@ -21,6 +21,15 @@ export default {
   },
   props: {
     msg: String
+  },
+  methods: {
+    login () {
+      const user = {
+        email: this.email,
+        password: this.password
+      }
+      this.$store.dispatch('login', user)
+    }
   }
 }
 </script>
@@ -35,7 +44,7 @@ a {
 .form {
   border-radius: 10px;
   border: 2px solid #73AD21;
-  padding: 10px;
+  padding: 15px;
   width: 200px;
   height: 15px;
 }
@@ -43,7 +52,7 @@ button {
   background-color: #3498db;
   border: none;
   color: white;
-  padding: 10px 10px;
+  padding: 7px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
