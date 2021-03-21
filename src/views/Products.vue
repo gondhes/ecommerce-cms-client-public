@@ -18,32 +18,18 @@
 </template>
 
 <script>
-import axios from '@/axios/axios.js'
 import ProductCard from '@/components/ProductCard.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Products',
-  data () {
-    return {
-      products: []
-    }
-  },
   methods: {
     fetchProducts () {
-      axios({
-        method: 'get',
-        url: '/products',
-        headers: {
-          access_token: localStorage.access_token
-        }
-      })
-        .then(({ data }) => {
-          this.products = data
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+      this.$store.dispatch('fetchProducts')
     }
+  },
+  computed: {
+    ...mapState(['products'])
   },
   components: {
     ProductCard

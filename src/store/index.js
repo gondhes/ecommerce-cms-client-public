@@ -8,8 +8,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    products: []
   },
   mutations: {
+    insertProduct (state, payload) {
+      state.products = payload
+    }
   },
   actions: {
     login (context, payload) {
@@ -22,9 +26,23 @@ export default new Vuex.Store({
         }
       })
         .then(({ data }) => {
-          // console.log(data.access_token)
           localStorage.access_token = data.access_token
           router.push('/products')
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    fetchProducts (context, payload) {
+      axios({
+        method: 'get',
+        url: `${baseURL}/products`,
+        headers: {
+          access_token: localStorage.access_token
+        }
+      })
+        .then(({ data }) => {
+          context.commit('insertProduct', data)
         })
         .catch((err) => {
           console.log(err)
