@@ -1,5 +1,5 @@
 <template>
-  <div class="col-3">
+  <div class="col-3" >
     <div class="card">
       <img class="card-img" :src="product.img_url">
       <div class="card-body">
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'ProductCard',
   props: ['product']
