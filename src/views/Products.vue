@@ -2,7 +2,9 @@
   <div class="products">
     <Logout/>
     <h1>Our Products</h1>
-    <br>
+    <div id="nav">
+      <a href="/addproduct" id="link-add-product">Add Product</a>
+    </div>
     <section class="product">
       <div class="container">
         <div class="row">

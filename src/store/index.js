@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from '@/axios/axios.js'
 import router from '../router'
-const baseURL = 'http://localhost:3000'
+const baseURL = 'https://ecommerce-tuku.herokuapp.com'
 
 Vue.use(Vuex)
 
